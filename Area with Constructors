@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+class Rectangle{
+private:
+	double width;
+	double length; //Member variable
+public:
+	Rectangle(); //Constructor
+	Rectangle(double l, double w); //Initialize Constructor
+	double getArea(); //Member Function
+	double getPerim();
+	double getLength();
+	double getWidth();
+	void setLength(double l);
+	void setWidth(double w);
+};
+Rectangle::Rectangle(){
+	width=10;
+	length=5;
+}
+Rectangle::Rectangle(double l, double w){ //Initialize Constructor
+	width=w;
+	length=l;
+	cout<<"Parameterized contructor is called!"<<endl;
+}
+
+double Rectangle::getArea(){
+	return width*length;
+}
+double Rectangle::getPerim(){
+	return (2*length + 2*width);
+}
+double Rectangle::getLength(){
+	return length;
+}
+double Rectangle::getWidth(){
+	return width;
+}
+void Rectangle::setLength(double l){
+	length=l; //Length is first than l.
+}
+void Rectangle::setWidth(double w){ //:: is Scope.
+	width=w; //Width is first than w.
+}
+int main(){
+	Rectangle rect;
+	Rectangle rectB(6,9); //Initialize Constructor
+	Rectangle *ptrRect;
+	Rectangle *ptrRectB;
+	ptrRect=&rect;
+	ptrRectB=&rectB;
+	cout<<"PtrRect area is "<<ptrRect->getArea()<<"."<<endl;
+	cout<<"PtrRectB area is "<<ptrRectB->getArea()<<"."<<endl;//Pointers need -> to use functions.
+	cout<<"The Area is "<<rect.getArea()<<"."<<endl;
+	cout<<"The Area for rectB is "<<rectB.getArea()<<"."<<endl;
+	rect.setWidth(8);
+	rect.setLength(11);
+	cout<<"The Area is "<<rect.getArea()<<"."<<endl;
+	
+	
+	return 0;
+}
