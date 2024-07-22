@@ -1,0 +1,32 @@
+//& means address of variable.
+//* means to return value of variable located at the address specified by it's operand.
+/*
+Pass by reference means sharing the same copy.
+Pass by value means it can be modified in the main code.
+*/
+#include <iostream>
+using namespace std;
+void printAddress1(string address);
+void printAddress2(const string & address);
+
+int main(){
+	string addr;
+	cout<<"Please enter your address."<<endl;
+	cin>>addr;
+	printAddress1(addr);
+	cout<<"Your saved address is "<<addr<<"."<<endl;
+	cout<<"Please enter your new address."<<endl;
+	cin>>addr;
+	printAddress2(addr);
+	cout<<"Your saved address is "<<addr<<"."<<endl;
+
+}
+void printAddress1(string address){ //Address will be copied from addr.
+	address="Changed!";
+	cout<<"Your address is "<<address<<"."<<endl; 
+}
+void printAddress2(const string & address){ //Address will be changed.
+	//address="Changed!";
+	cout<<"Your address is "<<address<<"."<<endl;
+}
+//Const means the variable cannot be changed in the function.
