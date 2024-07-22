@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+class Rectangle{
+private:
+	double width;
+	double length; //Member variable
+public:
+	Rectangle(); //Constructor
+	double getArea(); //Member Function
+	double getPerim();
+	double getLength();
+	double getWidth();
+	void setLength(double l);
+	void setWidth(double w);
+};
+Rectangle::Rectangle(){
+	width=10;
+	length=5;
+}
+double Rectangle::getArea(){
+	return width*length;
+}
+double Rectangle::getPerim(){
+	return (2*length + 2*width);
+}
+double Rectangle::getLength(){
+	return length;
+}
+double Rectangle::getWidth(){
+	return width;
+}
+void Rectangle::setLength(double l){
+	length=l; //Length is first than l.
+}
+void Rectangle::setWidth(double w){
+	width=w;
+}
+int main(){
+	Rectangle rect;
+	rect.setWidth(8);
+	rect.setLength(11);
+	cout<<"The Area is "<<rect.getArea()<<"."<<endl;
+	
+}
